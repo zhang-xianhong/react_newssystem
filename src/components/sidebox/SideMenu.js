@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { withRouter, useNavigate } from 'react-router-dom';
+import { withRouter, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, Layout } from 'antd';
 import axios from 'axios';
 import './index.css';
@@ -85,11 +85,15 @@ export default function SideMenu(props) {
   console.log(111111, getMenus(menu));
   useEffect(() => {
     axios.get('http://127.0.0.1:5000/rights?_embed=children').then(res => {
-      console.log(res.data);
+      console.log('menu', res.data);
       setMenu(res.data);
     })
   }, [])
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log('location', location);
+  const selectedKeys = [location.pathname];
+  const openKeys = ['/' + location.pathname.split('/')[1]];
 
   console.log(111, props);
   const onClick = (e) => {
@@ -103,8 +107,10 @@ export default function SideMenu(props) {
       <Menu
         theme="dark"
         mode="inline"
-        defaultSelectedKeys={['/home']}
-        defaultOpenKeys={['/home']}
+        defaultSelectedKeys={selectedKeys}
+        // defaultSelectedKeys={['/home']}
+        // defaultOpenKeys={['/home']}
+        defaultOpenKeys={openKeys}
         // items={items}
         items={getMenus(menu)}
         onClick={onClick}
