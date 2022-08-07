@@ -66,8 +66,10 @@ const iconList={
 }
 
 const getMenus = (menu) => {
+  const { role: {rights} } = JSON.parse(localStorage.getItem('token'));
+  // console.log('rights', rights);
   return menu.map((item) => {
-    if (item.children?.length > 0 && item.pagepermisson === 1) {
+    if (item.children?.length > 0 && item.pagepermisson === 1 && (rights.checked ? rights.checked.includes(item.key) : rights.includes(item.key))) {
       return {
         label: item.title,
         key: item.key,
@@ -82,20 +84,20 @@ const getMenus = (menu) => {
 
 export default function SideMenu(props) {
   const [menu, setMenu] = useState([]);
-  console.log(111111, getMenus(menu));
+  // console.log(111111, getMenus(menu));
   useEffect(() => {
     axios.get('http://127.0.0.1:5000/rights?_embed=children').then(res => {
-      console.log('menu', res.data);
+      // console.log('menu', res.data);
       setMenu(res.data);
     })
   }, [])
   const navigate = useNavigate();
   const location = useLocation();
-  console.log('location', location);
+  // console.log('location', location);
   const selectedKeys = [location.pathname];
   const openKeys = ['/' + location.pathname.split('/')[1]];
 
-  console.log(111, props);
+  // console.log(111, props);
   const onClick = (e) => {
     console.log(e);
     navigate(e.key);
