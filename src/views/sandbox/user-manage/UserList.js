@@ -156,7 +156,7 @@ export default function UserList() {
     getUsersList();
     getReginList();
     getRoleList();
-  }, [roleId, region, username, roleObj]);
+  }, []);
 
   const addUser = () => {
     setAddVisible(true);
@@ -175,7 +175,7 @@ export default function UserList() {
               ...item,
               ...values,
               role: roleList.filter(data => data.id === values.roleId)[0]
-            } 
+            }
           }
           return item;
         }))
@@ -203,7 +203,7 @@ export default function UserList() {
       <Table dataSource={dataSource} columns={columns} rowKey={item => item.id} pagination={{ pageSize: 5 }} />
       <Modal
         visible={isAddVisible}
-        title="新建用户"
+        title={isUpdateDisabled ? '新建用户' : '编辑用户'}
         okText="确定"
         cancelText="取消"
         onCancel={() => { setAddVisible(false); setUpdateDisabled(!isUpdateDisabled) }}

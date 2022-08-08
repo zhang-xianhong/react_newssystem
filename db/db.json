@@ -10,11 +10,26 @@
       "roleId": 1
     },
     {
-      "username": "钢蛋",
+      "username": "铁锤",
       "password": "123",
-      "roleState": false,
+      "roleState": true,
       "default": false,
       "region": "亚洲",
+      "roleId": 2,
+      "id": 2,
+      "data": {
+        "username": "铁锤",
+        "password": "123456",
+        "region": "亚洲",
+        "roleId": 2
+      }
+    },
+    {
+      "username": "钢蛋",
+      "password": "123",
+      "roleState": true,
+      "default": false,
+      "region": "南极洲",
       "roleId": 2,
       "id": 3
     },
@@ -23,9 +38,12 @@
       "password": "123",
       "roleState": true,
       "default": false,
-      "region": "南美洲",
-      "roleId": 2,
-      "id": 4
+      "region": "",
+      "roleId": 1,
+      "id": 4,
+      "data": {
+        "roleState": true
+      }
     },
     {
       "username": "西门吹灯",
@@ -37,12 +55,12 @@
       "id": 5
     },
     {
-      "username": "南屏晚风",
+      "username": "轩辕翠花",
       "password": "123",
       "roleState": true,
       "default": false,
-      "region": "亚洲",
-      "roleId": 2,
+      "region": "南极洲",
+      "roleId": 3,
       "id": 6
     },
     {
@@ -57,38 +75,20 @@
     {
       "username": "咕噜墩子",
       "password": "123",
-      "roleState": false,
+      "roleState": true,
       "default": false,
       "region": "亚洲",
       "roleId": 3,
       "id": 8
     },
     {
-      "username": "starbug",
-      "password": "123456",
-      "region": "南美洲",
+      "username": "zxh",
+      "passworld": "123456",
+      "region": "亚洲",
       "roleId": 3,
       "roleState": true,
       "default": false,
       "id": 9
-    },
-    {
-      "username": "zhangxianhong",
-      "password": "123456",
-      "region": "亚洲",
-      "roleId": 2,
-      "roleState": true,
-      "default": false,
-      "id": 11
-    },
-    {
-      "username": "zhangxianhong",
-      "password": "123456",
-      "region": "",
-      "roleId": 1,
-      "roleState": true,
-      "default": false,
-      "id": 13
     }
   ],
   "roles": [
@@ -97,12 +97,19 @@
       "roleName": "超级管理员",
       "roleType": 1,
       "rights": [
+        "/user-manage",
         "/user-manage/add",
         "/user-manage/delete",
         "/user-manage/update",
+        "/user-manage/list",
+        "/right-manage",
+        "/right-manage/role/list",
         "/right-manage/right/list",
         "/right-manage/role/update",
+        "/right-manage/role/delete",
         "/right-manage/right/update",
+        "/right-manage/right/delete",
+        "/news-manage",
         "/news-manage/list",
         "/news-manage/add",
         "/news-manage/update/:id",
@@ -116,14 +123,7 @@
         "/publish-manage/unpublished",
         "/publish-manage/published",
         "/publish-manage/sunset",
-        "/user-manage/list",
-        "/right-manage/role/list",
-        "/right-manage/role/delete",
-        "/right-manage/right/delete",
-        "/home",
-        "/user-manage",
-        "/right-manage",
-        "/news-manage"
+        "/home"
       ]
     },
     {
@@ -131,29 +131,26 @@
       "roleName": "区域管理员",
       "roleType": 2,
       "rights": [
-        "/home",
         "/user-manage",
         "/user-manage/add",
         "/user-manage/delete",
         "/user-manage/update",
         "/user-manage/list",
-        "/news-manage/list",
-        "/news-manage/add",
+        "/audit-manage",
+        "/audit-manage/audit",
+        "/audit-manage/list",
         "/publish-manage",
         "/publish-manage/unpublished",
         "/publish-manage/published",
         "/publish-manage/sunset",
+        "/home",
         "/news-manage",
-        "/audit-manage",
-        "/audit-manage/audit",
-        "/audit-manage/list",
+        "/news-manage/list",
+        "/news-manage/add",
         "/news-manage/update/:id",
         "/news-manage/preview/:id",
         "/news-manage/draft",
-        "/news-manage/category",
-        "/right-manage/role/list",
-        "/right-manage/right/list",
-        "/right-manage"
+        "/news-manage/category"
       ]
     },
     {
@@ -161,21 +158,20 @@
       "roleName": "区域编辑",
       "roleType": 3,
       "rights": [
-        "/home",
-        "/audit-manage",
-        "/audit-manage/list",
-        "/publish-manage",
-        "/publish-manage/unpublished",
-        "/publish-manage/published",
-        "/publish-manage/sunset",
-        "/audit-manage/audit",
+        "/news-manage",
         "/news-manage/list",
         "/news-manage/add",
         "/news-manage/update/:id",
         "/news-manage/preview/:id",
         "/news-manage/draft",
+        "/audit-manage/list",
+        "/publish-manage",
+        "/publish-manage/unpublished",
+        "/publish-manage/published",
+        "/publish-manage/sunset",
         "/news-manage/category",
-        "/news-manage"
+        "/home",
+        "/audit-manage"
       ]
     }
   ],
@@ -388,7 +384,7 @@
   "categories": [
     {
       "id": 1,
-      "title": "时事新闻1",
+      "title": "时事新闻",
       "value": "时事新闻"
     },
     {
@@ -398,7 +394,7 @@
     },
     {
       "id": 3,
-      "title": "科学技术2",
+      "title": "科学技术",
       "value": "科学技术"
     },
     {
@@ -408,8 +404,8 @@
     },
     {
       "id": 5,
-      "title": "世界体育",
-      "value": "世界体育"
+      "title": "美腿",
+      "value": "美腿"
     },
     {
       "id": 6,
@@ -465,8 +461,8 @@
       "auditState": 2,
       "publishState": 2,
       "createTime": 1615777743864,
-      "star": 1000,
-      "view": 2010,
+      "star": 1010,
+      "view": 2015,
       "id": 1,
       "publishTime": 1615778496314
     },
@@ -480,8 +476,8 @@
       "auditState": 2,
       "publishState": 2,
       "createTime": 1615778694831,
-      "star": 500,
-      "view": 804,
+      "star": 503,
+      "view": 817,
       "id": 2,
       "publishTime": 1615778911028
     },
@@ -496,7 +492,7 @@
       "publishState": 2,
       "createTime": 1615778715619,
       "star": 600,
-      "view": 983,
+      "view": 986,
       "id": 3,
       "publishTime": 1615778911762
     },
@@ -526,7 +522,7 @@
       "publishState": 2,
       "createTime": 1615778777924,
       "star": 100,
-      "view": 201,
+      "view": 203,
       "id": 5,
       "publishTime": 1615778914498
     },
@@ -546,21 +542,6 @@
       "publishTime": 1615778916224
     },
     {
-      "title": "Forms",
-      "categoryId": 5,
-      "content": "<h2 style=\"text-align:start;\"><span style=\"color: rgb(0,0,0);font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\">Controlled Components</span></h2>\n<p style=\"text-align:start;\"><span style=\"color: rgb(0,0,0);font-size: 17px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\">In HTML, form elements such as</span> <span style=\"color: rgb(0,0,0);font-size: 17px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\"><code>&lt;input&gt;</code>,</span> <span style=\"color: rgb(0,0,0);font-size: 17px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\"><code>&lt;textarea&gt;</code>, and</span> <span style=\"color: rgb(0,0,0);font-size: 17px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\"><code>&lt;select&gt;</code></span> <span style=\"color: rgb(0,0,0);font-size: 17px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\">typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with</span> <a href=\"https://reactjs.org/docs/react-component.html#setstate\" target=\"_self\"><span style=\"color: rgb(26,26,26);background-color: rgba(187,239,253,0.3);font-size: 17px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\"><code>setState()</code></span></a><span style=\"color: rgb(0,0,0);font-size: 17px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\">.</span></p>\n<p style=\"text-align:start;\"><span style=\"color: rgb(0,0,0);font-size: 17px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\">We can combine the two by making the React state be the “single source of truth”. Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a “controlled component”.</span></p>\n<p style=\"text-align:start;\"><span style=\"color: rgb(0,0,0);font-size: 17px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\">For example, if we want to make the previous example log the name when it is submitted, we can write the form as a controlled component:</span></p>\n<p style=\"text-align:start;\"><br>&nbsp;</p>\n",
-      "region": "全球",
-      "author": "admin",
-      "roleId": 1,
-      "auditState": 2,
-      "publishState": 2,
-      "createTime": 1615778852584,
-      "star": 309,
-      "view": 479,
-      "id": 7,
-      "publishTime": 1615778917074
-    },
-    {
       "title": "Thinking in React",
       "categoryId": 6,
       "content": "<p style=\"text-align:start;\"><span style=\"color: rgb(109,109,109);font-size: 18px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\">React is, in our opinion, the premier way to build big, fast Web apps with JavaScript. It has scaled very well for us at Facebook and Instagram.</span></p>\n<p style=\"text-align:start;\"><span style=\"color: rgb(0,0,0);font-size: 17px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\">One of the many great parts of React is how it makes you think about apps as you build them. In this document, we’ll walk you through the thought process of building a searchable product data table using React.</span></p>\n<h2 style=\"text-align:start;\"><span style=\"color: rgb(0,0,0);font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\">Start With A Mock</span></h2>\n<p style=\"text-align:start;\"><span style=\"color: rgb(0,0,0);font-size: 17px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\">Imagine that we already have a JSON API and a mock from our designer. The mock looks like this:</span></p>\n<p style=\"text-align:start;\"></p>\n<img src=\"https://reactjs.org/static/1071fbcc9eed01fddc115b41e193ec11/d4770/thinking-in-react-mock.png\" alt=\"Mockup\" style=\"height: 276.854px;width: 228px\"/>\n<p style=\"text-align:start;\"><span style=\"color: rgb(0,0,0);font-size: 17px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\">Our JSON API returns some data that looks like this:</span></p>\n<p style=\"margin-left:0px;\"><br> <span style=\"font-size: 17px;\">The first thing you’ll want to do is to draw boxes around every component (and subcomponent) in the mock and give them all names. If you’re working with a designer, they may have already done this, so go talk to them! Their Photoshop layer names may end up being the names of your React components!</span></p>\n<p style=\"margin-left:0px;\"><span style=\"font-size: 17px;\">But how do you know what should be its own component? Use the same techniques for deciding if you should create a new function or object. One such technique is the</span> <a href=\"https://en.wikipedia.org/wiki/Single_responsibility_principle\" target=\"_blank\"><span style=\"color: rgb(26,26,26);background-color: rgba(187,239,253,0.3);font-size: 17px;\">single responsibility principle</span></a><span style=\"font-size: 17px;\">, that is, a component should ideally only do one thing. If it ends up growing, it should be decomposed into smaller subcomponents.</span></p>\n<p style=\"margin-left:0px;\"><span style=\"font-size: 17px;\">Since you’re often displaying a JSON data model to a user, you’ll find that if your model was built correctly, your UI (and therefore your component structure) will map nicely. That’s because UI and data models tend to adhere to the same</span> <span style=\"font-size: 17px;\"><em>information architecture</em>. Separate your UI into components, where each component matches one piece of your data model.</span></p>\n<p style=\"margin-left:0px;\"></p>\n<img src=\"https://reactjs.org/static/eb8bda25806a89ebdc838813bdfa3601/6b2ea/thinking-in-react-components.png\" alt=\"Component diagram\" style=\"height: 319.521px;width: 275px\"/>\n<p style=\"margin-left:0px;\"><span style=\"font-size: 17px;\">You’ll see here that we have five components in our app. We’ve italicized the data each component represents.</span></p>\n<ol>\n<li style=\"margin-left:0px;\"><span style=\"color: rgb(26,26,26);font-size: 16px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\"><code><strong>FilterableProductTable</strong></code></span> <span style=\"color: rgb(26,26,26);font-size: 16px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\"><strong>(orange):</strong></span> <span style=\"color: rgb(26,26,26);font-size: 16px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\">contains the entirety of the example</span><br>&nbsp;</li>\n</ol>\n",
@@ -571,206 +552,111 @@
       "publishState": 2,
       "createTime": 1615778891518,
       "star": 781,
-      "view": 889,
+      "view": 890,
       "id": 8,
       "publishTime": 1615778917615
     },
     {
-      "title": "测试",
-      "categoryId": 3,
-      "content": "<p>测试</p>\n",
-      "region": "",
+      "title": "13333",
+      "categoryId": 4,
+      "content": "<p>第二次放入</p>\n",
+      "region": "全球",
       "author": "admin",
       "roleId": 1,
       "auditState": 2,
       "publishState": 3,
-      "createTime": 1616203436307,
-      "star": 1,
-      "view": 6,
-      "id": 9,
-      "publishTime": 1616203519274
-    },
-    {
-      "title": "dasfasgawet",
-      "categoryId": 6,
-      "content": "<ul>\n<li>dfasdf</li>\n<li>restgzrdaestgrse43564</li>\n<li>edcw34qv 534vg53454fv</li>\n</ul>\n",
-      "region": "全球",
-      "roleId": 1,
-      "auditState": 0,
-      "publishState": 0,
-      "createTime": "2021-10-27T13:00:38.917Z",
+      "createTime": 1650074265303,
       "star": 0,
       "view": 0,
-      "id": 10
+      "id": 10,
+      "publishTime": 1650199807878
     },
     {
-      "title": "那里们11111111",
-      "categoryId": 3,
-      "content": "<ol>\n<li>aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</li>\n<li>dzfsdzfasgfasdg</li>\n</ol>\n",
-      "region": "全球",
-      "author": "admin",
-      "roleId": 1,
-      "auditState": 1,
-      "publishState": 0,
-      "createTime": 1635339700913,
-      "star": 0,
-      "view": 0,
-      "id": 11
-    },
-    {
-      "title": "fate/zero",
-      "categoryId": 5,
-      "content": "<ol>\n<li>sdafasdgasdgfgfdsfgsad</li>\n</ol>\n<ul>\n<li>gfasdgasgasg</li>\n<li>sdafsadf</li>\n</ul>\n",
+      "title": "dddd123",
+      "categoryId": 2,
+      "content": "<p>得到分别v的发发布高耗能</p>\n",
       "region": "全球",
       "author": "admin",
       "roleId": 1,
       "auditState": 2,
-      "publishState": 1,
-      "createTime": 1635342060878,
+      "publishState": 2,
+      "createTime": 1650099881297,
       "star": 0,
       "view": 0,
-      "id": 12
+      "id": 11,
+      "publishTime": 1650181366522
     },
     {
-      "title": "zzzz",
-      "categoryId": 2,
-      "content": "<p>sdafasdfgasdg</p>\n",
+      "title": "dddd1wwdn",
+      "categoryId": 6,
+      "content": "<p>weiujhcndmsuebsxsecre</p>\n",
       "region": "全球",
       "author": "admin",
       "roleId": 1,
-      "auditState": 1,
+      "auditState": 2,
+      "publishState": 3,
+      "createTime": 1650163066405,
+      "star": 0,
+      "view": 0,
+      "id": 12,
+      "publishTime": 1650200222857
+    },
+    {
+      "title": "zzzzz",
+      "categoryId": 6,
+      "content": "<p>zzzzz</p>\n",
+      "region": "全球",
+      "author": "admin",
+      "roleId": 1,
+      "auditState": 3,
       "publishState": 0,
-      "createTime": 1635581983999,
+      "createTime": 1650166366981,
+      "star": 0,
+      "view": 0,
+      "id": 13
+    },
+    {
+      "title": "司马海味",
+      "categoryId": 6,
+      "content": "<p>QWERTY</p>\n",
+      "region": "亚洲",
+      "author": "司马海味",
+      "roleId": 3,
+      "auditState": 2,
+      "publishState": 1,
+      "createTime": 1650182692163,
       "star": 0,
       "view": 0,
       "id": 15
     },
     {
-      "title": "fate stay night unlimited blade works",
+      "title": "zzzzz",
       "categoryId": 2,
-      "content": "<p>fsn ubw</p>\n",
+      "content": "<p>自知则知之做做做</p>\n",
       "region": "全球",
       "author": "admin",
       "roleId": 1,
-      "auditState": 1,
-      "publishState": 0,
-      "createTime": 1635585009027,
-      "star": 0,
-      "view": 0,
-      "id": 16
-    },
-    {
-      "title": "钢弹的新闻",
-      "categoryId": 2,
-      "content": "<p>啊啊啊啊啊啊啊</p>\n<ul>\n<li>asd</li>\n</ul>\n",
-      "region": "全球",
-      "author": "钢蛋",
-      "roleId": 1,
       "auditState": 2,
       "publishState": 2,
-      "createTime": 1635585235591,
-      "star": 0,
-      "view": 0,
-      "id": 17,
-      "publishTime": 1635590343244
+      "createTime": 1650273933747,
+      "star": 12,
+      "view": 5,
+      "id": 16,
+      "publishTime": 1650273950277
     },
     {
-      "title": "测试水水水水水水",
+      "title": "学Python",
       "categoryId": 3,
-      "content": "<p>撒大苏打实打实大苏打实打实大苏打实打实</p>\n",
-      "region": "亚洲",
-      "author": "司马海味",
-      "roleId": 3,
-      "auditState": 3,
+      "content": "<p>要考Python😹</p>\n",
+      "region": "全球",
+      "author": "admin",
+      "roleId": 1,
+      "auditState": 0,
       "publishState": 0,
-      "createTime": 1635585567963,
+      "createTime": 1657036280239,
       "star": 0,
       "view": 0,
-      "id": 18
-    },
-    {
-      "title": "3eeeeeeeeeeee",
-      "categoryId": 3,
-      "content": "<p>ssssssssssssss</p>\n",
-      "region": "全球",
-      "author": "admin",
-      "roleId": 1,
-      "auditState": 2,
-      "publishState": 3,
-      "createTime": 1635590898161,
-      "star": 0,
-      "view": 0,
-      "id": 19,
-      "publishTime": 1635590902461
-    },
-    {
-      "title": "aaaaaaaaaaa",
-      "categoryId": 4,
-      "content": "<p>zzzzzzzzzzzzzzzzzzzzfdawsfasfasdf</p>\n",
-      "region": "全球",
-      "author": "admin",
-      "roleId": 1,
-      "auditState": 2,
-      "publishState": 2,
-      "createTime": 1635860419285,
-      "star": 15,
-      "view": 6,
-      "id": 20,
-      "publishTime": 1635860426396,
-      "role": {
-        "id": 1,
-        "roleName": "超级管理员",
-        "roleType": 1,
-        "rights": [
-          "/user-manage/add",
-          "/user-manage/delete",
-          "/user-manage/update",
-          "/right-manage",
-          "/right-manage/right/list",
-          "/right-manage/role/update",
-          "/right-manage/right/update",
-          "/news-manage",
-          "/news-manage/list",
-          "/news-manage/add",
-          "/news-manage/update/:id",
-          "/news-manage/preview/:id",
-          "/news-manage/draft",
-          "/news-manage/category",
-          "/audit-manage",
-          "/audit-manage/audit",
-          "/audit-manage/list",
-          "/publish-manage",
-          "/publish-manage/unpublished",
-          "/publish-manage/published",
-          "/publish-manage/sunset",
-          "/user-manage",
-          "/user-manage/list",
-          "/right-manage/role/list",
-          "/right-manage/role/delete",
-          "/right-manage/right/delete",
-          "/home"
-        ]
-      },
-      "category": {
-        "id": 4,
-        "title": "军事世界",
-        "value": "军事世界"
-      }
-    },
-    {
-      "title": "咋啊啊",
-      "categoryId": 2,
-      "content": "<p>啊啊啊啊啊啊啊啊啊啊啊</p>\n",
-      "region": "全球",
-      "author": "admin",
-      "roleId": 1,
-      "auditState": 2,
-      "publishState": 2,
-      "createTime": 1635942711804,
-      "star": 0,
-      "view": 10,
-      "id": 21,
-      "publishTime": 1635942719548
+      "id": 17
     }
   ]
 }

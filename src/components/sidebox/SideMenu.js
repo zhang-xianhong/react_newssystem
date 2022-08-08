@@ -73,8 +73,8 @@ const getMenus = (menu) => {
       return {
         label: item.title,
         key: item.key,
-        children: getMenus(item.children),
-        icon: iconList[item.key]
+        icon: iconList[item.key],
+        children: getMenus(item.children)
       }
     }
     return (item.pagepermisson === 1) && getItem(item.title, item.key, iconList[item.key]);

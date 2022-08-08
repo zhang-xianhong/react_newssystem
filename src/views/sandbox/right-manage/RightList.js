@@ -61,7 +61,7 @@ export default function RightList() {
   };
 
   const confirmMethod = (item) => {
-    console.log('confirmMethod', item);
+    // console.log('confirmMethod', item);
     confirm({
       title: 'Are you sure you want to delete this item?',
       icon: <ExclamationCircleOutlined />,
